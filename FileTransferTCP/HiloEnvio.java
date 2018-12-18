@@ -8,8 +8,6 @@ public class HiloEnvio extends Thread
     private File archivo;
     private Socket socketCliente = null;
     private FileInputStream fileChannel = null;
-//    private BufferedInputStream lectorArchivo = null;
-//    private BufferedOutputStream enviar = null;
     DataInputStream input;
     BufferedInputStream bis;
     BufferedOutputStream bos;
@@ -17,7 +15,9 @@ public class HiloEnvio extends Thread
     byte[] byteArray;
 
 
-    public HiloEnvio(Socket socketCliente, File archivo){ this.socketCliente = socketCliente; this.archivo = archivo; }
+    public HiloEnvio(Socket socketCliente, File archivo){
+        this.socketCliente = socketCliente; this.archivo = archivo;
+    }
 
     public void run() {
 
@@ -36,10 +36,6 @@ public class HiloEnvio extends Thread
             }
             System.out.println("Done.");
 
-            //todo
-//            lectorArchivo.read(mybytearray,0,mybytearray.length);
-//            bos.write(mybytearray,0,mybytearray.length);
-//            bos.flush();
         }
         catch (IOException | NullPointerException e) { System.out.println("Interrumpido. ");
             interrupt();}
